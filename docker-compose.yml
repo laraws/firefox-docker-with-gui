@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  firfox:
+    build:
+      context: .
+      args:
+        - CHANGE_SOURCE=${CHANGE_SOURCE}
+    image: laraws/firfox
+    container_name: firfox
+    tty: true
+    environment:
+      - DISPLAY=${DISPLAY}
+    network_mode: host
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
